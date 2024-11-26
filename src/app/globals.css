@@ -1,21 +1,42 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Fonts */
+  --font-paragraph: var(--font-montserrat);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+@theme {
+  /* Breakpoints */
+  --breakpoint-tablet-small: 640px;
+  --breakpoint-tablet: 768px;
+  --breakpoint-desktop: 1024px;
+  --breakpoint-large: 1280px;
+
+  /* Colors */
+  --color-background: oklch(98% 0.08 160);        /* Light off-white background */
+  --color-card: oklch(95% 0.02 160);              /* Slightly darker card background */
+  --color-card-hover: oklch(93% 0.025 160);       /* Hover state for cards */
+  
+  --color-text-primary: oklch(20% 0.02 160);      /* Dark green-gray text */
+  --color-text-hover: oklch(45% 0.12 145);        /* Darker green hover state */
+  --color-text-muted: oklch(45% 0.02 160);        /* Muted text */
+  
+  --color-heading: oklch(30% 0.1 145);            /* Dark green headings */
+  
+  --color-border: oklch(75% 0.05 160);            /* Light borders */
+  --color-border-hover: oklch(65% 0.08 145);      /* Darker borders on hover */
+  
+  --color-accent-primary: oklch(55% 0.15 145);    /* Main green accent */
+  --color-accent-secondary: oklch(50% 0.12 160);  /* Secondary accent */
+  
+  --color-shadow: oklch(75% 0.02 160 / 0.15);     /* Subtle shadows */
+  
+  /* Status Colors */
+  --color-success: oklch(55% 0.2 145);           /* Success green */
+  --color-error: oklch(65% 0.25 30);             /* Error red */
+  --color-warning: oklch(75% 0.15 85);           /* Warning yellow */
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+html {
+  scroll-behavior: smooth;
 }
