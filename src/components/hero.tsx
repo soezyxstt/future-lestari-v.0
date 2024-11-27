@@ -9,6 +9,7 @@ import {
 import Image from 'next/image';
 import { useEffect, useRef } from 'react';
 import Lenis from 'lenis';
+import { useMediaQuery } from 'usehooks-ts';
 
 export default function Hero() {
   const ref = useRef<HTMLDivElement>(null);
@@ -16,10 +17,11 @@ export default function Hero() {
     target: ref,
     offset: ['start start', 'end start'],
   });
+  const isDesktop = useMediaQuery('(min-width: 1024px)');
 
   const scale = useTransform(scrollYProgress, [0, 1], [1, 1.5]);
   const opacity = useTransform(scrollYProgress, [0, 1 / 1.5], [1, 0]);
-  const y = useTransform(scrollYProgress, [0, 0.75], [0, 350]);
+  const y = useTransform(scrollYProgress, [0, 1], [0, 450]);
   const background = useMotionTemplate`radial-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, ${opacity}))`;
 
   useEffect(() => {
@@ -47,7 +49,7 @@ export default function Hero() {
           scale,
         }}
         transition={{ duration: 0.5, stiffness: 100, damping: 30 }}
-        className='h-screen w-full sticky top-0 left-0 z-0' // Changed to fixed positioning
+        className='h-screen w-full top-0 left-0 z-0' // Changed to fixed positioning
       >
         <Image
           src='/hero.png'
@@ -64,9 +66,8 @@ export default function Hero() {
 
       <motion.div
         initial={{ opacity: 0, y: 40 }}
-        animate={{ opacity: 1, y: 0 }}
-        style={{ y }}
-        transition={{ duration: 0.75, delay: 0.5 }}
+        animate={{ opacity: 1, y: 0, transition: {duration: 0.75} }}
+        style={{y: isDesktop ? y : 0}}
         className='z-10 absolute top-[50vh] left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[80vw] tablet:w-[50vw]'
       >
         <h1 className='text-4xl md:text-6xl lg:text-7xl font-bold text-white text-center'>
@@ -77,7 +78,7 @@ export default function Hero() {
         </p>
         <motion.div
           initial={{ scale: 0, opacity: 0 }}
-          animate={{ scale: 1, opacity: 1, transition: { delay: 1 } }}
+          animate={{ scale: 1, opacity: 1, transition: {delay: 0.5} }}
           className='bg-lime translate-y-6 w-full h-px rounded-full origin-center'
         />
       </motion.div>

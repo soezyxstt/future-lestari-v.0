@@ -1,57 +1,58 @@
-'use client';
-
-import { motion } from "motion/react";
-import { useRef } from "react";
+import Header from './util/header';
+import { TimelineAceternity } from './util/timeline';
 
 const timelineData = [
   {
-    year: "2023",
-    title: "Project Launch",
-    description: "Initial launch of Future Lestari initiative",
+    date: '2023',
+    title: 'Project Launch',
+    content: 'Initial launch of Future Lestari initiative',
   },
   {
-    year: "2024",
-    title: "Phase 1",
-    description: "Expansion of sustainable programs",
+    date: '2024',
+    title: 'Phase 1',
+    content: 'Expansion of sustainable programs',
   },
   {
-    year: "2025",
-    title: "Phase 2",
-    description: "Implementation of green technologies",
+    date: '2025',
+    title: 'Phase 2',
+    content: 'Implementation of green technologies',
+  },
+  {
+    date: '2025',
+    title: 'Phase 2',
+    content: 'Implementation of green technologies',
+  },
+  {
+    date: '2025',
+    title: 'Phase 2',
+    content: 'Implementation of green technologies',
   },
   // Add more timeline items as needed
 ];
 
 const Timeline = () => {
-  const containerRef = useRef<HTMLDivElement>(null);
 
   return (
-    <section id='timeline' className="min-h-screen w-full overflow-hidden grid place-items-center py-20 bg-white">
-      <div
-        ref={containerRef}
-        className="relative flex w-full overflow-x-scroll scrollbar-hide"
-        style={{ scrollBehavior: "smooth" }}
-      >
-        <div className="flex gap-8 px-8">
-          {timelineData.map((item, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.2 }}
-              className="relative flex min-w-[300px] flex-col rounded-lg bg-white p-6 shadow-lg"
-            >
-              <div className="mb-4 text-3xl font-bold text-emerald-600">
-                {item.year}
-              </div>
-              <h3 className="mb-2 text-xl font-semibold">{item.title}</h3>
-              <p className="text-gray-600">{item.description}</p>
-              <div className="absolute -left-4 top-1/2 h-4 w-4 -translate-y-1/2 rounded-full bg-emerald-500" />
-            </motion.div>
-          ))}
-        </div>
-        <div className="absolute bottom-0 left-0 h-0.5 w-full bg-emerald-200" />
+    <section id='timeline' className="min-h-screen w-full overflow-hidden relative py-20 bg-white">
+      {/* Background Ornaments */}
+      <div className="absolute inset-0 overflow-hidden z-0">
+        <svg className="absolute top-10 left-10 text-emerald-100 w-40 h-40 opacity-50" viewBox="0 0 100 100">
+          <circle cx="50" cy="50" r="40" fill="currentColor"/>
+        </svg>
+        <svg className="absolute top-40 right-20 text-emerald-50 w-60 h-60 opacity-40" viewBox="0 0 100 100">
+          <polygon points="50,10 90,90 10,90" fill="currentColor"/>
+        </svg>
+        <svg className="absolute bottom-20 left-1/4 text-emerald-100 w-32 h-32 opacity-30" viewBox="0 0 100 100">
+          <rect x="20" y="20" width="60" height="60" fill="currentColor"/>
+        </svg>
       </div>
+
+      {/* Title */}
+      <div className="text-center mb-16 z-10 isolate">
+        <Header className='mb-4'>Programs Timeline</Header>
+        <div className="w-24 h-1 bg-emerald-500 mx-auto"></div>
+      </div>
+      <TimelineAceternity data={timelineData} />
     </section>
   );
 };

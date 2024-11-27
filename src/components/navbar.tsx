@@ -6,7 +6,6 @@ import {
   useMotionValueEvent,
   AnimatePresence,
   useSpring,
-  useMotionTemplate,
   useTransform,
 } from 'motion/react';
 import { useState } from 'react';
@@ -33,8 +32,8 @@ export default function Navbar() {
     }
   });
 
-  const blurT = useTransform(scrollY, [0, height * 0.9, height], [0, 0, 15]);
-  const blur = useMotionTemplate`blur(${blurT}px)`;
+  const color = useTransform(scrollY, [0, height * 0.9, height], ['var(--color-lime)', 'var(--color-lime)', 'var(--color-green-700)']);
+  const background = useTransform(scrollY, [0, height * 0.9, height], ['transparent', 'transparent', 'var(--color-white)']);
 
   const navItems = [
     'about',
@@ -87,12 +86,14 @@ export default function Navbar() {
       <motion.nav
         className='fixed top-0 left-0 w-full flex items-center justify-between h-20 px-6 z-30 transition-all duration-300'
         animate={{ y: hidden ? '-100%' : '0%' }}
-        style={{ backdropFilter: blur }}
+        style={{ color, background }}
         transition={{ duration: 0.3 }}
       >
         <motion.div
           className='absolute -bottom-0.5 left-0 right-0 h-px bg-lime/50 origin-left z-50'
           style={{ scaleX }}
+          onHoverStart={() => setHidden(false)}
+          // onHoverEnd={() => setHidden(true)}
         />
         <Link
           href='#hero'
@@ -118,7 +119,7 @@ export default function Navbar() {
             <Link
               key={item}
               href={`#${item.toLowerCase()}`}
-              className='relative py-2 flex justify-center w-24 text-lime hover:text-green-light font-semibold transition-colors z-10 capitalize'
+              className='relative py-2 flex justify-center text-inherit w-24 font-semibold transition-colors z-10 capitalize'
               onMouseEnter={() => setActiveTab(index)}
             >
               {item}
