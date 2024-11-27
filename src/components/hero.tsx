@@ -19,7 +19,7 @@ export default function Hero() {
 
   const scale = useTransform(scrollYProgress, [0, 1], [1, 1.5]);
   const opacity = useTransform(scrollYProgress, [0, 1 / 1.5], [1, 0]);
-  const y = useTransform(scrollYProgress, [0, 1], [0, 500]);
+  const y = useTransform(scrollYProgress, [0, 0.75], [0, 350]);
   const background = useMotionTemplate`radial-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, ${opacity}))`;
 
   useEffect(() => {
