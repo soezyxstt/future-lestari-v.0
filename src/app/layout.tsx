@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { montserrat } from './font';
+import { montserrat, pacifico } from './font';
 import Navbar from '@/components/navbar';
+import Footer from '@/components/footer'
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -14,10 +15,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={montserrat.className}>
+    <html lang="en" className="overflow-x-hidden">
+      <body className={`${montserrat.className} ${pacifico.variable}`}>
         <Navbar />
-        {children}
+          {children}
+        <Footer />
       </body>
     </html>
   );
