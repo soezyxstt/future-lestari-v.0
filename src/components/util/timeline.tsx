@@ -42,9 +42,9 @@ export const TimelineAceternity = ({ data }: { data: TimelineEntry[] }) => {
             key={index}
             className='flex justify-start pt-10 md:pt-40 md:gap-10'
           >
-            <div className='sticky flex flex-col md:flex-row z-40 items-center self-start max-w-xs lg:max-w-sm md:w-full'>
-              <div className='md:h-10 h-8 absolute left-4 md:left-3 w-8 md:w-10 rounded-full bg-accent-primary/40 flex items-center justify-center'>
-                <div className='h-4 w-4 rounded-full bg-accent-secondary border-2 border-neutral-100 p-2' />
+            <div className='sticky flex flex-col md:flex-row z-20 items-center self-start max-w-xs lg:max-w-sm md:w-full isolate'>
+              <div className='md:h-8 h-6 absolute left-5 md:left-4 w-6 md:w-8 rounded-full bg-accent-primary/40 flex items-center justify-center'>
+                <div className='md:h-4 md:w-4 h-2 w-2 rounded-full bg-accent-secondary border-2 border-neutral-100 p-2' />
               </div>
               <motion.h3
                 initial={{ opacity: 0, x: -40 }}

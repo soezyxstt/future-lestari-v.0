@@ -12,6 +12,7 @@
     "@studio-freight/lenis": "^1.0.42",
     "@tabler/icons-react": "^3.22.0",
     "lenis": "^1.1.17",
+    "locomotive-scroll": "^4.1.4",
     "motion": "^11.11.17",
     "next": "15.0.3",
     "react": "19.0.0-rc-66855b96-20241106",
