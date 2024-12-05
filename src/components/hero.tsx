@@ -8,7 +8,6 @@ import {
 } from 'motion/react';
 import Image from 'next/image';
 import { useRef } from 'react';
-import { useMediaQuery } from 'usehooks-ts';
 
 export default function Hero() {
   const ref = useRef<HTMLDivElement>(null);
@@ -16,11 +15,9 @@ export default function Hero() {
     target: ref,
     offset: ['start start', 'end start'],
   });
-  const isDesktop = useMediaQuery('(min-width: 1024px)');
 
   const scale = useTransform(scrollYProgress, [0, 1], [1, 1.5]);
   const opacity = useTransform(scrollYProgress, [0, 1 / 1.5], [1, 0]);
-  const y = useTransform(scrollYProgress, [0, 1], [0, 450]);
   const background = useMotionTemplate`radial-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, ${opacity}))`;
 
   return (
