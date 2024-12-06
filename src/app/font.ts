@@ -2,12 +2,12 @@ import {Montserrat, Pacifico} from "next/font/google";
 
 export const montserrat = Montserrat({
   subsets: ["latin"],
-  variable: "--font-montserrat",
+  variable: "--font-next-montserrat",
 });
 
 export const pacifico = Pacifico({
   weight: "400",
   subsets: ["latin"],
-  variable: "--font-pacifico",
+  variable: "--font-next-pacifico",
 });
 

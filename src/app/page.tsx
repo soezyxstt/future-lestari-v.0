@@ -3,27 +3,30 @@
 import About from '@/components/about';
 import Hero from '@/components/hero';
 import Timeline from '@/components/timeline';
-import { useEffect, useRef } from 'react';
-import LocomotiveScroll from 'locomotive-scroll';
+import { useEffect } from 'react';
+import Lenis from 'lenis';
 export default function Home() {
-  const ref = useRef<HTMLDivElement>(null);
+
   useEffect(() => {
-    const scroll = new LocomotiveScroll({
-      el: ref.current,
-      smooth: true,
-      multiplier: 0.75,
-      lerp: 0.075,
+    const lenis = new Lenis({
+      // duration: 0.5,
+      // easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      lerp: 0.05,
     });
 
-    // Cleanup
-    return () => scroll.destroy();
+    function raf(time: number) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+
+    requestAnimationFrame(raf);
   }, []);
 
   return (
-    <main ref={ref}>
+    <>
       <Hero />
       <About />
       <Timeline />
-    </main>
+    </>
   );
 }

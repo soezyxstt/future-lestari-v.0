@@ -3,6 +3,7 @@ import "./globals.css";
 import { montserrat, pacifico } from './font';
 import Navbar from '@/components/navbar';
 import Footer from '@/components/footer'
+import 'lenis/dist/lenis.css'
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -16,7 +17,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="overflow-x-hidden">
-      <body className={`${montserrat.className} ${pacifico.variable}`}>
+      <body className={`${montserrat.className} ${pacifico.variable} ${montserrat.variable}`}>
         <Navbar />
           {children}
         <Footer />

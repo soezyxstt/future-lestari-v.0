@@ -1,19 +1,15 @@
 @import 'tailwindcss';
 
-html {
-  scroll-behavior: smooth;
-}
-
 :root {
   /* Fonts */
-  --font-paragraph: var(--font-montserrat);
-  --font-heading: var(--font-pacifico);
+  --font-paragraph: var(--font-next-montserrat);
+  --font-heading: var(--font-next-pacifico);
 }
 
 @theme {
   /* Fonts */
-  --font-heading: var(--font-pacifico);
-  --font-pacifico: var(--font-pacifico);
+  --font-heading: var(--font-next-pacifico);
+  --font-pacifico: var(--font-next-pacifico);
 
   /* Breakpoints */
   --breakpoint-tablet-small: 640px;
@@ -47,8 +43,35 @@ html {
   --color-success: oklch(55% 0.2 145); /* Success green */
   --color-error: oklch(65% 0.25 30); /* Error red */
   --color-warning: oklch(75% 0.15 85); /* Warning yellow */
+
+  --shadow-timeline-right: 4px 3px 0 1px color-mix(in oklch, var(--color-accent-primary) 50%, transparent);
+  --shadow-timeline-left: -4px -3px 0 1px color-mix(in oklch, var(--color-accent-primary) 50%, transparent);
 }
 
-html {
-  scroll-behavior: smooth;
+@layer base {
+  body {
+    background:
+    fixed
+    linear-gradient(
+      to bottom right,
+      transparent,
+      white 70%
+    ),
+    fixed
+    repeating-linear-gradient(
+      to bottom,
+      var(--color-background),
+      var(--color-background) 1px,
+      transparent 1px,
+      transparent 40px
+    ),
+    fixed
+    repeating-linear-gradient(
+      to right,
+      var(--color-background),
+      var(--color-background) 1px,
+      transparent 1px,
+      transparent 40px
+    );
+  }
 }

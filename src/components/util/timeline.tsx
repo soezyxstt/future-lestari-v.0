@@ -30,7 +30,7 @@ export const TimelineAceternity = ({ data }: { data: TimelineEntry[] }) => {
 
   return (
     <div
-      className='w-full bg-white font-sans md:px-10'
+      className='w-full font-sans md:px-10'
       ref={containerRef}
     >
       <div

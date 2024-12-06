@@ -1,5 +1,6 @@
 import Header from './util/header';
 import { TimelineAceternity } from './util/timeline';
+import * as TemplateTimeline from './timeline-template';
 
 const timelineData = [
   {
@@ -30,10 +31,15 @@ const timelineData = [
   // Add more timeline items as needed
 ];
 
+const timelineData2 = timelineData.map((item) => ({
+  ...item,
+  description: item.content,
+}));
+
 const Timeline = () => {
 
   return (
-    <section id='timeline' className="min-h-screen w-full overflow-hidden relative py-20 bg-white">
+    <section id='timeline' className="min-h-screen w-full overflow-hidden relative py-20  " >
       {/* Background Ornaments */}
       <div className="absolute inset-0 overflow-hidden z-0">
         <svg className="absolute top-10 left-10 text-emerald-100 w-40 h-40 opacity-50" viewBox="0 0 100 100">
@@ -53,6 +59,7 @@ const Timeline = () => {
         <div className="w-24 h-1 bg-emerald-500 mx-auto"></div>
       </div>
       <TimelineAceternity data={timelineData} />
+      <TemplateTimeline.default data={timelineData2} />
     </section>
   );
 };

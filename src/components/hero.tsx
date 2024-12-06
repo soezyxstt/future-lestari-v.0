@@ -8,14 +8,18 @@ import {
 } from 'motion/react';
 import Image from 'next/image';
 import { useRef } from 'react';
+// import { useMediaQuery } from 'usehooks-ts';
 
 export default function Hero() {
+  
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ['start start', 'end start'],
   });
 
+  // const isDesktop = useMediaQuery('(min-width: 768px)');  
+  const y = useTransform(scrollYProgress, [0, 1], [0, 350]);
   const scale = useTransform(scrollYProgress, [0, 1], [1, 1.5]);
   const opacity = useTransform(scrollYProgress, [0, 1 / 1.5], [1, 0]);
   const background = useMotionTemplate`radial-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, ${opacity}))`;
@@ -49,9 +53,7 @@ export default function Hero() {
       <motion.div
         initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0, transition: { duration: 0.75 } }}
-        // style={{ y: isDesktop ? y : 0 }}
-        data-scroll
-        data-scroll-speed='-15'
+        style={{ y }}
         className='z-10 absolute top-[50vh] left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[80vw] tablet:w-[50vw]'
       >
         <h1 className='text-4xl md:text-6xl lg:text-7xl font-bold text-white text-center'>
