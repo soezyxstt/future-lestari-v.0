@@ -5,27 +5,22 @@ import {
   useScroll,
   useMotionValueEvent,
   AnimatePresence,
-  useSpring,
   useTransform,
 } from 'motion/react';
 import { useState } from 'react';
 import { Mail, Twitter, Instagram, Linkedin } from 'lucide-react';
 import { useWindowSize } from 'usehooks-ts';
+import Image from 'next/image';
 
 export default function Navbar() {
-  const { scrollY, scrollYProgress } = useScroll();
+  const { scrollY } = useScroll();
   const { height } = useWindowSize();
-  const scaleX = useSpring(scrollYProgress, {
-    stiffness: 100,
-    damping: 30,
-    restDelta: 0.001,
-  });
   const [hidden, setHidden] = useState(false);
   const [activeTab, setActiveTab] = useState<number>(0);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useMotionValueEvent(scrollY, 'change', (latest) => {
-    if (latest > scrollY.getPrevious()! && latest > 100) {
+    if (latest > 350) {
       setHidden(true);
     } else {
       setHidden(false);
@@ -33,6 +28,7 @@ export default function Navbar() {
   });
 
   const color = useTransform(scrollY, [0, height * 0.9, height], ['var(--color-lime)', 'var(--color-lime)', 'var(--color-green-700)']);
+  const borderWidth = useTransform(scrollY, [0, height * 0.9, height], ['0', '0', '1px']);
   const background = useTransform(scrollY, [0, height * 0.9, height], ['transparent', 'transparent', 'var(--color-white)']);
 
   const navItems = [
@@ -84,22 +80,18 @@ export default function Navbar() {
       </button>
 
       <motion.nav
-        className='fixed top-0 left-0 w-full flex items-center justify-between h-20 px-6 z-30 transition-all duration-300'
-        animate={{ y: hidden ? '-100%' : '0%' }}
-        style={{ color, background }}
+        className='fixed top-0 md:top-2 md:border md:rounded-full left-0 md:left-1/2 md:-translate-x-1/2 w-full md:w-9/10 flex items-center justify-between h-20 px-6 md:pr-3 z-30 transition-all duration-300'
+        animate={{ y: hidden ? '-95%' : '0%' }}
+        style={{ color, background, borderWidth }}
         transition={{ duration: 0.3 }}
+        onHoverStart={() => setHidden(false)}
+        onHoverEnd={() => setHidden(true)}
       >
-        <motion.div
-          className='absolute -bottom-0.5 left-0 right-0 h-px bg-lime/50 origin-left z-50'
-          style={{ scaleX }}
-          onHoverStart={() => setHidden(false)}
-          // onHoverEnd={() => setHidden(true)}
-        />
         <Link
           href='#hero'
           className='text-lg font-semibold text-lime hover:text-text-hover transition-colors'
         >
-          Eventname
+          <Image src="/logo.png" alt="Eventname" width={100} height={100} />  
         </Link>
 
         <div
@@ -129,7 +121,7 @@ export default function Navbar() {
 
         <Link
           href='#register'
-          className='hidden md:block px-4 py-2 rounded-lg text-lime font-medium hover:text-white transition-colors relative group overflow-hidden border border-accent-primary'
+          className='hidden md:grid place-items-center px-8 py-2 rounded-full text-lime font-medium hover:text-white transition-colors relative group overflow-hidden border border-accent-primary h-[calc(100%-1.5rem)]'
         >
           <div className='absolute inset-0 bg-green-700 w-0 group-hover:w-full transition-all duration-500 ease-in-out' />
           <span className='relative z-10'>Register</span>

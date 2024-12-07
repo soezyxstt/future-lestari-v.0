@@ -49,11 +49,14 @@
 }
 
 @layer base {
+  html {
+    scroll-behavior: smooth;
+  }
   body {
     background:
     fixed
     linear-gradient(
-      to bottom right,
+      to bottom,
       transparent,
       white 70%
     ),

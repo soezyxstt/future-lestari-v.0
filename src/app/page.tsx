@@ -5,6 +5,8 @@ import Hero from '@/components/hero';
 import Timeline from '@/components/timeline';
 import { useEffect } from 'react';
 import Lenis from 'lenis';
+import Benefits from '@/components/benefits';
+
 export default function Home() {
 
   useEffect(() => {
@@ -27,6 +29,7 @@ export default function Home() {
       <Hero />
       <About />
       <Timeline />
+      <Benefits />
     </>
   );
 }
