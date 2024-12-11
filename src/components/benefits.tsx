@@ -46,7 +46,7 @@ function BenefitCard({ title, description, icon: Icon, index }: { title: string,
       viewport={{ amount: 0.5 }}
       className="grid grid-rows-subgrid row-span-2">
       <div
-        className="bg-white relative p-1 rounded-2xl shadow-lg transition-all duration-300 grid grid-rows-subgrid row-span-2 hover:bg-green-500 cursor-pointer group hover:scale-105">
+        className="bg-white relative p-1 rounded-2xl shadow-lg transition-all duration-300 grid grid-rows-subgrid row-span-2 hover:bg-accent-primary cursor-pointer group hover:scale-105">
         <p className="text-base md:text-lg text-slate-700 p-4 rounded-2xl flex items-center bg-white relative transition-all duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 aspect-[4/3] cursor-pointer">
           {description}
         </p>

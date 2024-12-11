@@ -6,6 +6,9 @@ import Timeline from '@/components/timeline';
 import { useEffect } from 'react';
 import Lenis from 'lenis';
 import Benefits from '@/components/benefits';
+import Judges from '@/components/judges';
+import Partners from '@/components/partners';
+import Faqs from '@/components/faqs';
 
 export default function Home() {
 
@@ -30,6 +33,9 @@ export default function Home() {
       <About />
       <Timeline />
       <Benefits />
+      <Judges />
+      <Partners />
+      <Faqs />
     </>
   );
 }

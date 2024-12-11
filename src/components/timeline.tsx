@@ -1,5 +1,5 @@
 import Header from './util/header';
-import { TimelineAceternity } from './util/timeline';
+// import { TimelineAceternity } from './util/timeline';
 import * as TemplateTimeline from './timeline-template';
 
 const timelineData = [
@@ -58,7 +58,7 @@ const Timeline = () => {
         <Header className='mb-4'>Programs Timeline</Header>
         <div className="w-24 h-1 bg-emerald-500 mx-auto"></div>
       </div>
-      <TimelineAceternity data={timelineData} />
+      {/* <TimelineAceternity data={timelineData} /> */}
       <TemplateTimeline.default data={timelineData2} />
     </section>
   );

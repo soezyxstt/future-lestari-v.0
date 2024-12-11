@@ -84,8 +84,12 @@ export default function Navbar() {
         animate={{ y: hidden ? '-95%' : '0%' }}
         style={{ color, background, borderWidth }}
         transition={{ duration: 0.3 }}
-        onHoverStart={() => setHidden(false)}
-        onHoverEnd={() => setHidden(true)}
+        onMouseEnter={() => setHidden(false)}
+        onMouseLeave={() => {
+          if (scrollY.get() > 300) {
+            setHidden(true)
+          }
+        }}
       >
         <Link
           href='#hero'
@@ -121,7 +125,7 @@ export default function Navbar() {
 
         <Link
           href='#register'
-          className='hidden md:grid place-items-center px-8 py-2 rounded-full text-lime font-medium hover:text-white transition-colors relative group overflow-hidden border border-accent-primary h-[calc(100%-1.5rem)]'
+          className='hidden md:grid place-items-center px-8 py-2 rounded-full text-accent-primary font-medium hover:text-white transition-colors relative group overflow-hidden border border-accent-primary h-[calc(100%-1.5rem)]'
         >
           <div className='absolute inset-0 bg-green-700 w-0 group-hover:w-full transition-all duration-500 ease-in-out' />
           <span className='relative z-10'>Register</span>
