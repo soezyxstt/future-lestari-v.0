@@ -8,7 +8,7 @@ import {
   useTransform,
 } from 'motion/react';
 import { useState } from 'react';
-import { Mail, Twitter, Instagram, Linkedin } from 'lucide-react';
+import { Mail, Instagram, Linkedin, Youtube } from 'lucide-react';
 import { useWindowSize } from 'usehooks-ts';
 import Image from 'next/image';
 
@@ -29,7 +29,7 @@ export default function Navbar() {
 
   const color = useTransform(scrollY, [0, height * 0.9, height], ['var(--color-lime)', 'var(--color-lime)', 'var(--color-green-700)']);
   const borderWidth = useTransform(scrollY, [0, height * 0.9, height], ['0', '0', '1px']);
-  const background = useTransform(scrollY, [0, height * 0.9, height], ['transparent', 'transparent', 'var(--color-white)']);
+  const background = useTransform(scrollY, [0, height * 0.9, height], ['#FFFFFF1E', '#FFFFFF55', 'var(--color-white)']);
 
   const navItems = [
     'about',
@@ -40,9 +40,9 @@ export default function Navbar() {
     'FAQ',
   ];
   const socialLinks = [
-    { name: 'Twitter', href: '#', Icon: Twitter },
-    { name: 'Instagram', href: '#', Icon: Instagram },
-    { name: 'LinkedIn', href: '#', Icon: Linkedin },
+    { name: 'YouTube', href: 'https://www.youtube.com/channel/UCvKEPJS3t6Er1FsxSl7eJYA', Icon: Youtube },
+    { name: 'Instagram', href: 'https://www.instagram.com/future.lestari/', Icon: Instagram },
+    { name: 'LinkedIn', href: 'https://www.linkedin.com/company/future-lestari/?viewAsMember=true', Icon: Linkedin }
   ];
 
   return (
@@ -80,7 +80,7 @@ export default function Navbar() {
       </button>
 
       <motion.nav
-        className='fixed top-0 md:top-2 md:border md:rounded-full left-0 md:left-1/2 md:-translate-x-1/2 w-full md:w-9/10 flex items-center justify-between h-20 px-6 md:pr-3 z-30 transition-all duration-300'
+        className='fixed top-0 md:top-2 md:border md:rounded-full left-0 md:left-1/2 md:-translate-x-1/2 w-full md:w-9/10 flex items-center justify-between h-20 px-6 md:pr-3 z-30 transition-all duration-300 md:pl-8 backdrop-blur-sm'
         animate={{ y: hidden ? '-95%' : '0%' }}
         style={{ color, background, borderWidth }}
         transition={{ duration: 0.3 }}
@@ -93,9 +93,9 @@ export default function Navbar() {
       >
         <Link
           href='#hero'
-          className='text-lg font-semibold text-lime hover:text-text-hover transition-colors'
+          className='text-lg font-semibold text-lime hover:text-text-hover transition-all h-[calc(100%-1rem)] hover:scale-102'
         >
-          <Image src="/logo.png" alt="Eventname" width={100} height={100} />  
+          <Image src="/logo.png" alt="Eventname" width={100} height={100} className='h-full w-auto' />  
         </Link>
 
         <div
@@ -115,7 +115,7 @@ export default function Navbar() {
             <Link
               key={item}
               href={`#${item.toLowerCase()}`}
-              className='relative py-2 flex justify-center text-inherit w-24 font-semibold transition-colors z-10 capitalize'
+              className='relative py-2 flex justify-center w-24 font-semibold transition-colors z-10 capitalize'
               onMouseEnter={() => setActiveTab(index)}
             >
               {item}
@@ -201,11 +201,11 @@ export default function Navbar() {
                     Contact Us
                   </h3>
                   <a
-                    href='mailto:contact@event.com'
+                    href='https://mail.google.com/mail/u/0/?fs=1&to=admin.lestari@pijarfondation.org&su=&body=&tf=cm'
                     className='text-sm text-black/60 font-light italic hover:text-black/90 flex items-center gap-2'
                   >
                     <Mail size={16} />
-                    contact@event.com
+                    admin.lestari@pijarfondation.org
                   </a>
 
                   {/* Social Media Links */}

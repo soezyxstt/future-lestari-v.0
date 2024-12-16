@@ -2,15 +2,17 @@ import { useState } from 'react';
 import JudgeCard from './judge/card';
 import Header from './util/header';
 import { cn } from '@/lib/util';
+import { useScroll } from 'motion/react';
 
 function Judges() {
   const judges = [
-    { name: 'John Doe', title: 'Judge', image: '/judge-1.png', profession: 'Software Engineer at Google' },
-    { name: 'Engileen Copper', title: 'Judge', image: '/judge-2.png', profession: 'Product Manager at Apple' },
-    { name: 'Pramudita Andriani', title: 'Judge', image: '/judge-3.png', profession: 'Software Engineer at Google' },
-    { name: 'Rizky Andriani', title: 'Judge', image: '/judge-4.png', profession: 'Product Manager at Apple' },
+    { name: 'To Be Announced', title: 'Judge', image: '/judge.png', profession: 'Pemerintah Kota Bogor' },
+    { name: 'To Be Announced', title: 'Judge', image: '/judge.png', profession: 'Pemerintah Kota Semarang' },
+    { name: 'To Be Announced', title: 'Judge', image: '/judge.png', profession: 'Pemerintah Kota Palembang' },
+    { name: 'To Be Announced', title: 'Judge', image: '/judge.png', profession: 'UK Indoneisa Tech Hub' },
   ];
   const [activeJudge, setActiveJudge] = useState<boolean>()
+  const { scrollY } = useScroll();
   return (
     <>
       <section id='judges' className='min-h-screen flex max-md:flex-col justify-center md:justify-between md:items-center md:px-20 max-w-7xl mx-auto px-8 py-10'>
@@ -24,7 +26,7 @@ function Judges() {
           ))}
         </div>
       </section>
-        <div className={cn('fixed inset-0 bg-black/10 backdrop-blur-[2px] z-30 pointer-events-none transition-all duration-300', activeJudge ? " opacity-100" : "opacity-0")} />
+        <div className={cn('fixed inset-0 bg-black/10 backdrop-blur-[2px] z-30 pointer-events-none transition-all duration-300', (activeJudge && scrollY.getVelocity() === 0) ? " opacity-100" : "opacity-0")} />
     </>
   );
 }

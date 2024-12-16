@@ -12,39 +12,50 @@ function Faqs() {
   const faqs = [
     {
       id: '01',
-      title: 'Do you offer eco-friendly furniture options?',
-      content: 'With every project we undertake, we are committed to turning houses into homes, one design at a time.',
+      title: 'What types of innovations are you looking for?',
+      content: 'We seek tech-driven solutions addressing key challenges like urban farming, stunting reduction, tidal flood adaptation, and air pollution reduction. Solutions should be at minimum Technology Readiness Level 6.',
     },
     {
       id: '02',
-      title: 'How do you incorporate natural light effectively?',
-      content: 'We carefully analyze the space and utilize strategic placement of windows, mirrors, and light colors to maximize natural light throughout your home.',
+      title: 'Which regions are eligible to participate?',
+      content: 'Our program is open to innovators from Southeast Asia and Japan who have secured operational funding and are ready to implement solutions at district and city levels.',
     },
     {
       id: '03',
-      title: 'Can you create a minimalist workspace design?',
-      content: 'Our minimalist workspace designs focus on functionality, clean lines, and clutter-free environments to enhance productivity and mental clarity.',
+      title: 'How do you support implementation in partner cities?',
+      content: 'We work closely with government partners in Bogor, Semarang, and Palembang to facilitate pilot programs and help scale successful solutions to regional and national levels.',
     },
     {
       id: '04',
-      title: "What's your approach to small space optimization?",
-      content: 'We specialize in creative storage solutions and multi-functional furniture to make the most of every square foot in compact spaces.',
+      title: 'What industries can participate in the program?',
+      content: 'We welcome solutions from various sectors including Agriculture & Food, Healthcare, Energy & Resources, Environmental & Sustainability, Transportation & Logistics, and SaaS & AI among others.',
     },
     {
       id: '05',
-      title: 'Do you specialize in open-concept living areas?',
-      content: 'Our expertise in open-concept design creates seamless transitions between spaces while maintaining distinct functional zones.',
+      title: 'What are the key environmental challenges you address?',
+      content: 'Our focus areas include low carbon development, sanitation and wastewater management, food security, rapid urbanization, air pollution, waste management, and climate change adaptation.',
+    },
+    {
+      id: '06',
+      title: 'How does the program align with sustainable development goals?',
+      content: 'Our initiative directly supports multiple UN Sustainable Development Goals, including Zero Hunger, Good Health, Clean Water, Sustainable Cities, Climate Action, and Industry Innovation, with a particular focus on environmental impact.',
+    },
+    {
+      id: '07',
+      title: 'What kind of funding and support is available?',
+      content: 'While participants need to have secured operational funding, we provide strategic support through government partnerships, implementation guidance, and opportunities to scale solutions from district to national levels.',
     },
   ];
 
   return (
-    <section id='judges' className='min-h-screen flex max-md:flex-col justify-center md:justify-between md:items-center md:px-20 px-8 py-10'>
+    <section id='faq' className='min-h-screen flex max-md:flex-col justify-center md:justify-between md:items-center md:px-20 px-8 py-10'>
       <div className="max-md:text-center mb-16 z-10 isolate flex flex-col max-md:items-center md:max-w-1/3">
         <h2 className="text-xl md:text-3xl font-normal text-accent-primary">FAQs</h2>
         <Header className='mb-4'>Still Have Any Questions?</Header>
         <div className="w-24 h-1 bg-emerald-500"></div>
         <Link
-          href='#register'
+          target='_blank'
+          href='http://wa.me/628111288114'
           className='flex items-center gap-2 px-8 py-2 rounded-full text-accent-primary font-medium hover:text-white relative group overflow-hidden border border-accent-primary h-[calc(100%-1.5rem)] w-fit mt-4 md:mt-8 group transition-all'
         >
           <div className='absolute inset-0 bg-green-700 w-0 group-hover:w-full transition-all duration-500 ease-in-out' />

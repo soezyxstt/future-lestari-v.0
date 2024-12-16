@@ -1,25 +1,43 @@
 'use client';
 import { motion, MotionValue, useScroll, useTransform } from 'motion/react';
-import { useId, useRef } from 'react';
+import { type HTMLAttributes, useId, useRef } from 'react';
 
-export default function Word({ words: paragraph }: { words: string }) {
-  const ref = useRef<HTMLDivElement>(null);
-  const id = useId();
+export function WordsList({ title, points }: HTMLAttributes<HTMLDivElement> & { title: string; points: string[] }) {
+  const ref = useRef<HTMLOListElement>(null);
+  const wordsL = points.map(words => words.split(" ").length)
   const { scrollYProgress } = useScroll({
     target: ref,
-    offset: ['start 0.75', 'end 0.25'],
+    offset: ['start 0.9', '0.5 0.4'],
   });
+  const l = points.reduce((acc, point) => acc + point.split(' ').length, 0)
+  return (
+    <ol
+      className='text-lg md:text-2xl lg:text-3xl p-6 md:p-10 flex flex-wrap max-w-[90vw] shadow-lg shadow-shadow text-green-800 bg-white rounded-lg text-justify'
+      ref={ref}
+    ><p className="flex"><span className='italic font-light text-lg md:text-2xl mr-6 flex items-center text-lime'>FGC</span>{title}</p>
+      {points.map((words, index) => (
+        <li className="" key={words}>
+          <Words words={words} l={l} scrollYProgress={scrollYProgress} start={index !== 0 ? wordsL.slice(0, index).reduce((sum, num) => sum + num, 0) / l : 0} />
+        </li>
+      ))}
+    </ol>
+  )
+}
+
+export function Words({ words: paragraph, l, scrollYProgress, start: s }: { words: string, l: number, scrollYProgress: MotionValue<number>, start: number; }) {
+  const ref = useRef<HTMLDivElement>(null);
+  const id = useId();
 
   const words = paragraph.split(' ');
-
+  const step = 1 / l;
   return (
     <p
-      className='text-lg md:text-3xl lg:text-4xl p-6 md:p-10 flex flex-wrap max-w-[90vw] shadow-lg shadow-shadow text-green-800 bg-white rounded-lg text-justify'
+      className='md:text-lg text-sm lg:text-xl flex flex-wrap text-green-800 text-justify'
       ref={ref}
-    ><span className='italic font-light text-lg md:text-2xl mr-6 flex items-center text-lime'>Event Name</span>
+    >
       {words.map((word, index) => {
-        const start = index / words.length;
-        const end = (index + 1) / words.length;
+        const start = (s + index * step);
+        const end = (s + (index + 1) * step);
 
         return (
           <W
@@ -81,10 +99,10 @@ function C({
   const o = useTransform(progress, [start, end], [0.25, 0]);
   return (
     <span className='relative '>
-      <motion.span style={{ opacity: o}} className='absolute z-0 isolate'>{children}</motion.span>
+      <motion.span style={{ opacity: o }} className='absolute z-0 isolate'>{children}</motion.span>
       <motion.span
         style={{ opacity }}
-        >
+      >
         {children}
       </motion.span>
     </span>
