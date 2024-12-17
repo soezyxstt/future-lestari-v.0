@@ -1,4 +1,4 @@
-import Header from './util/header';
+// import Header from './util/header';
 import Image from 'next/image';
 import { cn } from '@/lib/util';
 
@@ -37,21 +37,32 @@ const localGov = [
 //   // { name: 'Snapchat', logo: '/partners/snapchat-logo-svgrepo-com.svg' },
 // ];
 
-function SponsorCard({ name, logo, tier }: { name: string; logo: string; tier: 'gold' | 'silver' }) {
+function SponsorCard({
+  name,
+  logo,
+  tier,
+}: {
+  name: string;
+  logo: string;
+  tier: 'gold' | 'silver';
+}) {
   return (
-    <div className={cn(
-      "relative group  rounded-xl p-8 transition-all duration-300 border border-accent-primary",
-      tier == "gold" && "backdrop-blur-sm  bg-accent-primary/2.5 hover:bg-accent-primary/5",
-      tier === 'gold' ? 'w-[300px] h-[200px]' : 'w-[250px] h-[150px]'
-    )}>
-      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-      <div className="relative h-full w-full flex items-center justify-center">
+    <div
+      className={cn(
+        'relative group  rounded-xl p-8 transition-all duration-300 border border-accent-primary',
+        tier == 'gold' &&
+          'backdrop-blur-sm  bg-accent-primary/2.5 hover:bg-accent-primary/5',
+        tier === 'gold' ? 'w-[300px] h-[200px]' : 'w-[250px] h-[150px]'
+      )}
+    >
+      <div className='absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300' />
+      <div className='relative h-full w-full flex items-center justify-center'>
         <Image
           src={logo}
           alt={name}
           width={tier === 'gold' ? 180 : 130}
           height={tier === 'gold' ? 150 : 130}
-          className="object-contain transition-transform duration-300 w-full h-full hover:scale-110"
+          className='object-contain transition-transform duration-300 w-full h-full hover:scale-110'
         />
       </div>
     </div>
@@ -60,43 +71,67 @@ function SponsorCard({ name, logo, tier }: { name: string; logo: string; tier: '
 
 function Partners() {
   return (
-    <section id='partners' className='min-h-screen flex flex-col items-center md:px-20 mx-auto px-8 py-10 md:py-20 bg-green-500/5 md:gap-16 gap-12'>
-      <div className="text-center z-10 isolate flex flex-col items-center">
+    <section
+      id='partners'
+      className='min-h-screen flex flex-col items-center md:px-20 mx-auto px-8 py-10 md:py-20 bg-green-500/5 md:gap-16 gap-12'
+    >
+      {/* <div className="text-center z-10 isolate flex flex-col items-center">
         <Header className='mb-4'>Partners</Header>
         <div className="w-24 h-1 bg-emerald-500"></div>
+      </div> */}
+
+      <div className=''>
+        <h2 className='text-2xl font-bold text-center mb-8 text-green-600'>
+          Initiative Program
+        </h2>
+        <div className='flex flex-wrap justify-center gap-8'>
+          <SponsorCard
+            name='Pijar Foundation'
+            logo='/partners/pijar.png'
+            tier='gold'
+          />
+        </div>
       </div>
 
-      {/* Gold Sponsors */}
-      <div className="">
-        <h2 className="text-2xl font-bold text-center mb-8 text-green-600">Powered By</h2>
-        <div className="flex flex-wrap justify-center gap-8">
+      <div className=''>
+        <h2 className='text-2xl font-bold text-center mb-8 text-green-600'>
+          Powered By
+        </h2>
+        <div className='flex flex-wrap justify-center gap-8'>
           {goldSponsors.map((sponsor, i) => (
-            <SponsorCard key={sponsor.name + i} {...sponsor} tier="gold" />
+            <SponsorCard
+              key={sponsor.name + i}
+              {...sponsor}
+              tier='gold'
+            />
           ))}
         </div>
       </div>
 
-      {/* Silver Sponsors */}
-      <div className="grid md:grid-cols-2 max-sm:grid-rows-2 w-full items-center gap-12 max-w-3xl">
-        <div className="">
-          <h2 className="text-2xl font-bold text-center mb-8 text-green-600">Grant Partner</h2>
-          <div className="flex flex-wrap justify-center gap-8">
-            <SponsorCard name="Poli-Poli" logo='/partners/poli.png' tier="silver" />
-          </div>
-        </div>
-        <div className="">
-          <h2 className="text-2xl font-bold text-center mb-8 text-green-600">Initiative Program</h2>
-          <div className="flex flex-wrap justify-center gap-8">
-            <SponsorCard name="Pijar Foundation" logo='/partners/pijar.png' tier="silver" />
-          </div>
+      <div className=''>
+        <h2 className='text-2xl font-bold text-center mb-8 text-green-600'>
+          Grant Partner
+        </h2>
+        <div className='flex flex-wrap justify-center gap-8'>
+          <SponsorCard
+            name='Poli-Poli'
+            logo='/partners/poli.png'
+            tier='silver'
+          />
         </div>
       </div>
 
-      <div className="">
-        <h2 className="text-2xl font-bold text-center mb-8 text-green-600">Local Government Partner</h2>
-        <div className="flex flex-wrap justify-center gap-8">
+      <div className=''>
+        <h2 className='text-2xl font-bold text-center mb-8 text-green-600'>
+          Local Government Partner
+        </h2>
+        <div className='flex flex-wrap justify-center gap-8'>
           {localGov.map((sponsor, i) => (
-            <SponsorCard key={sponsor.name + i} {...sponsor} tier="silver" />
+            <SponsorCard
+              key={sponsor.name + i}
+              {...sponsor}
+              tier='silver'
+            />
           ))}
         </div>
       </div>
@@ -127,7 +162,6 @@ function Partners() {
           ))}
         </div>
       </div> */}
-
     </section>
   );
 }

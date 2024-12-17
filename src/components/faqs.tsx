@@ -51,7 +51,7 @@ function Faqs() {
     <section id='faq' className='min-h-screen flex max-md:flex-col justify-center md:justify-between md:items-center md:px-20 px-8 py-10'>
       <div className="max-md:text-center mb-16 z-10 isolate flex flex-col max-md:items-center md:max-w-1/3">
         <h2 className="text-xl md:text-3xl font-normal text-accent-primary">FAQs</h2>
-        <Header className='mb-4'>Still Have Any Questions?</Header>
+        <Header className='mb-4'>Do You Have Any Further Questions?</Header>
         <div className="w-24 h-1 bg-emerald-500"></div>
         <Link
           target='_blank'

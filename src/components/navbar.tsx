@@ -87,7 +87,7 @@ export default function Navbar() {
         onMouseEnter={() => setHidden(false)}
         onMouseLeave={() => {
           if (scrollY.get() > 300) {
-            setHidden(true)
+            setHidden(true);
           }
         }}
       >
@@ -95,7 +95,13 @@ export default function Navbar() {
           href='#hero'
           className='text-lg font-semibold text-lime hover:text-text-hover transition-all h-[calc(100%-1rem)] hover:scale-102'
         >
-          <Image src="/logo.png" alt="Eventname" width={100} height={100} className='h-full w-auto' />  
+          <Image
+            src='/logo.png'
+            alt='Eventname'
+            width={100}
+            height={100}
+            className='h-full w-auto'
+          />
         </Link>
 
         <div
@@ -124,7 +130,8 @@ export default function Navbar() {
         </div>
 
         <Link
-          href='#register'
+          href='http://bit.ly/FGCRegistration'
+          target='_blank'
           className='hidden md:grid place-items-center px-8 py-2 rounded-full text-accent-primary font-medium hover:text-white transition-colors relative group overflow-hidden border border-accent-primary h-[calc(100%-1.5rem)]'
         >
           <div className='absolute inset-0 bg-green-700 w-0 group-hover:w-full transition-all duration-500 ease-in-out' />
@@ -182,7 +189,8 @@ export default function Navbar() {
                   transition={{ delay: 0.7 }}
                 >
                   <Link
-                    href='#register'
+                    href='http://bit.ly/FGCRegistration'
+                    target='_blank'
                     className='text-lg text-accent-primary font-bold italic hover:text-accent-secondary transition-colors'
                     onClick={() => setIsMobileMenuOpen(false)}
                   >

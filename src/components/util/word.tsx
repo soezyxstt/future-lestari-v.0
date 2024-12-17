@@ -7,12 +7,12 @@ export function WordsList({ title, points }: HTMLAttributes<HTMLDivElement> & { 
   const wordsL = points.map(words => words.split(" ").length)
   const { scrollYProgress } = useScroll({
     target: ref,
-    offset: ['start 0.9', '0.5 0.4'],
+    offset: ['start 0.8', '0.5 0.4'],
   });
   const l = points.reduce((acc, point) => acc + point.split(' ').length, 0)
   return (
     <ol
-      className='text-lg md:text-2xl lg:text-3xl p-6 md:p-10 flex flex-wrap max-w-[90vw] shadow-lg shadow-shadow text-green-800 bg-white rounded-lg text-justify'
+      className='text-lg md:text-2xl lg:text-3xl p-6 md:p-10 flex flex-wrap max-w-[90vw] shadow-lg shadow-shadow text-green-800 bg-white rounded-lg'
       ref={ref}
     ><p className="flex"><span className='italic font-light text-lg md:text-2xl mr-6 flex items-center text-lime'>FGC</span>{title}</p>
       {points.map((words, index) => (
@@ -99,9 +99,10 @@ function C({
   const o = useTransform(progress, [start, end], [0.25, 0]);
   return (
     <span className='relative '>
-      <motion.span style={{ opacity: o }} className='absolute z-0 isolate'>{children}</motion.span>
+      <motion.span style={{ opacity: o }} transition={{duration: 0.005, ease: 'linear'}} className='absolute z-0 isolate'>{children}</motion.span>
       <motion.span
         style={{ opacity }}
+        transition={{duration: 0.005, ease: 'linear'}}
       >
         {children}
       </motion.span>
