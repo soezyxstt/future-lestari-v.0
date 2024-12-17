@@ -16,7 +16,7 @@ export default function Home() {
     const lenis = new Lenis({
       // duration: 0.5,
       // easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-      lerp: 0.05,
+      lerp: 0.075,
     });
 
     function raf(time: number) {

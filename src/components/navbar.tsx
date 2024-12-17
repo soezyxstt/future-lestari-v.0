@@ -29,7 +29,7 @@ export default function Navbar() {
 
   const color = useTransform(scrollY, [0, height * 0.9, height], ['var(--color-lime)', 'var(--color-lime)', 'var(--color-green-700)']);
   const borderWidth = useTransform(scrollY, [0, height * 0.9, height], ['0', '0', '1px']);
-  const background = useTransform(scrollY, [0, height * 0.9, height], ['#FFFFFF1E', '#FFFFFF55', 'var(--color-white)']);
+  const background = useTransform(scrollY, [0, height * 0.9, height], ['#66666655', '#FFFFFF55', '#EEFFEE55']);
 
   const navItems = [
     'about',
@@ -80,7 +80,7 @@ export default function Navbar() {
       </button>
 
       <motion.nav
-        className='fixed top-0 md:top-2 md:border md:rounded-full left-0 md:left-1/2 md:-translate-x-1/2 w-full md:w-9/10 flex items-center justify-between h-20 px-6 md:pr-3 z-30 transition-all duration-300 md:pl-8 backdrop-blur-sm'
+        className='fixed top-0 left-0 z-30 flex items-center justify-between w-full h-20 px-6 transition-all duration-300 md:top-2 md:border md:rounded-full md:left-1/2 md:-translate-x-1/2 md:w-9/10 md:pr-3 md:pl-8 backdrop-blur-sm'
         animate={{ y: hidden ? '-95%' : '0%' }}
         style={{ color, background, borderWidth }}
         transition={{ duration: 0.3 }}
@@ -100,12 +100,12 @@ export default function Navbar() {
             alt='Eventname'
             width={100}
             height={100}
-            className='h-full w-auto'
+            className='w-auto h-full'
           />
         </Link>
 
         <div
-          className='hidden md:flex gap-6 relative group'
+          className='relative hidden gap-6 md:flex group'
           id='nav-links'
         >
           <motion.div
@@ -121,7 +121,7 @@ export default function Navbar() {
             <Link
               key={item}
               href={`#${item.toLowerCase()}`}
-              className='relative py-2 flex justify-center w-24 font-semibold transition-colors z-10 capitalize'
+              className='relative z-10 flex justify-center w-24 py-2 font-semibold capitalize transition-colors'
               onMouseEnter={() => setActiveTab(index)}
             >
               {item}
@@ -134,7 +134,7 @@ export default function Navbar() {
           target='_blank'
           className='hidden md:grid place-items-center px-8 py-2 rounded-full text-accent-primary font-medium hover:text-white transition-colors relative group overflow-hidden border border-accent-primary h-[calc(100%-1.5rem)]'
         >
-          <div className='absolute inset-0 bg-green-700 w-0 group-hover:w-full transition-all duration-500 ease-in-out' />
+          <div className='absolute inset-0 w-0 transition-all duration-500 ease-in-out bg-green-700 group-hover:w-full' />
           <span className='relative z-10'>Register</span>
         </Link>
       </motion.nav>
@@ -143,24 +143,24 @@ export default function Navbar() {
         {isMobileMenuOpen && (
           <>
             <motion.div
-              className='fixed inset-0 bg-black/20 backdrop-blur-sm z-40'
+              className='fixed inset-0 z-40 bg-black/20 backdrop-blur-sm'
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={() => setIsMobileMenuOpen(false)}
             />
             <motion.div
-              className='fixed right-0 top-0 h-dvh w-72 bg-white z-50 shadow-lg'
+              className='fixed top-0 right-0 z-50 bg-white shadow-lg h-dvh w-72'
               initial={{ x: '100%' }}
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
               transition={{ type: 'spring', damping: 20, stiffness: 100 }}
             >
-              <div className='inset-0 bg-accent-primary/15 absolute z-0 isolate'></div>
-              <div className='flex flex-col h-full relative z-10'>
+              <div className='absolute inset-0 z-0 bg-accent-primary/15 isolate'></div>
+              <div className='relative z-10 flex flex-col h-full'>
                 {/* Navigation Links */}
                 <div className='flex flex-col gap-2.5 p-8 mt-24'>
-                  <h2 className='text-sm font-light mb-2 text-accent-primary/80 italic'>
+                  <h2 className='mb-2 text-sm italic font-light text-accent-primary/80'>
                     Menu
                   </h2>
                   {navItems.map((item, index) => (
@@ -172,7 +172,7 @@ export default function Navbar() {
                     >
                       <Link
                         href={`#${item}`}
-                        className='text-lg text-accent-primary font-medium hover:text-accent-secondary transition-colors'
+                        className='text-lg font-medium transition-colors text-accent-primary hover:text-accent-secondary'
                         onClick={() => setIsMobileMenuOpen(false)}
                       >
                         {item.charAt(0).toUpperCase() + item.slice(1)}
@@ -191,7 +191,7 @@ export default function Navbar() {
                   <Link
                     href='http://bit.ly/FGCRegistration'
                     target='_blank'
-                    className='text-lg text-accent-primary font-bold italic hover:text-accent-secondary transition-colors'
+                    className='text-lg italic font-bold transition-colors text-accent-primary hover:text-accent-secondary'
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
                     Register
@@ -200,17 +200,17 @@ export default function Navbar() {
 
                 {/* Contact Info */}
                 <motion.div
-                  className='mt-auto p-6 border-t border-black/80'
+                  className='p-6 mt-auto border-t border-black/80'
                   initial={{ y: 20, opacity: 0 }}
                   animate={{ y: 0, opacity: 1 }}
                   transition={{ delay: 0.8 }}
                 >
-                  <h3 className='text-sm font-light text-black/70 italic mb-2'>
+                  <h3 className='mb-2 text-sm italic font-light text-black/70'>
                     Contact Us
                   </h3>
                   <a
                     href='https://mail.google.com/mail/u/0/?fs=1&to=admin.lestari@pijarfondation.org&su=&body=&tf=cm'
-                    className='text-sm text-black/60 font-light italic hover:text-black/90 flex items-center gap-2'
+                    className='flex items-center gap-2 text-sm italic font-light text-black/60 hover:text-black/90'
                   >
                     <Mail size={16} />
                     admin.lestari@pijarfondation.org

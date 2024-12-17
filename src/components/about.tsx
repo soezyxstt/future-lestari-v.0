@@ -4,30 +4,30 @@ import { WordsList } from './util/word';
 
 export default function About() {
   const objectives = [
-    '1. To stimulate and harness innovative solutions for pressing sustainability and society challenges in Southeast Asia.',
-    '2. To generate actionable insights that can inform and shape environmental and social policy and governance in the region.',
-    '3. To develop and refine solutions that are not only effective but also scalable across different contexts within Southeast Asia.',
+    'To stimulate and harness innovative solutions for pressing sustainability and society challenges in Southeast Asia.',
+    'To generate actionable insights that can inform and shape environmental and social policy and governance in the region.',
+    'To develop and refine solutions that are not only effective but also scalable across different contexts within Southeast Asia.',
   ];
   const outcomes = [
-    '1. A portfolio of innovative projects addressing key sustainability and social issues in Southeast Asia.',
-    '2. Tangible results from pilot projects, showcasing the efficacy and potential scalability of the developed solutions.',
-    '3. Result-driven policy recommendations and strategies that can be adopted by policymakers to support sustainable society development.',
-    '4. A vibrant and active community of the FutureGen interconnected through collaborative platforms and events.',
+    'A portfolio of innovative projects addressing key sustainability and social issues in Southeast Asia.',
+    'Tangible results from pilot projects, showcasing the efficacy and potential scalability of the developed solutions.',
+    'Result-driven policy recommendations and strategies that can be adopted by policymakers to support sustainable society development.',
+    'A vibrant and active community of the FutureGen interconnected through collaborative platforms and events.',
   ];
   const stunting = [
-    '1. Personalized Nutrition and Monitoring: Develop mobile apps or portable wearables to monitor maternal health indicators (nutrition, weight, anemia levels, etc.) and provide tailored dietary recommendations. By using AI to analyze biomarkers and predict nutritional deficiencies early.',
-    '2. Fortified Food Solutions: Innovate affordable, culturally acceptable fortified foods or supplements specifically designed for pregnant women. By leverage biotechnology to create nutrient-rich solutions (e.g., protein or micronutrient powders) that can be locally produced',
-    "3. Community-Based Health Tracking: Deploy platform (like smartphone apps or SMS-based) for community health workers to track pregnant women's health and ensure timely checkups. By using AI or machine learning for real-time risk assessment.",
+    'Personalized Nutrition and Monitoring: Develop mobile apps or portable wearables to monitor maternal health indicators (nutrition, weight, anemia levels, etc.) and provide tailored dietary recommendations. By using AI to analyze biomarkers and predict nutritional deficiencies early.',
+    'Fortified Food Solutions: Innovate affordable, culturally acceptable fortified foods or supplements specifically designed for pregnant women. By leverage biotechnology to create nutrient-rich solutions (e.g., protein or micronutrient powders) that can be locally produced',
+    "Community-Based Health Tracking: Deploy platform (like smartphone apps or SMS-based) for community health workers to track pregnant women's health and ensure timely checkups. By using AI or machine learning for real-time risk assessment.",
   ];
   const urbanFarming = [
-    '1. Community Optimization: Tools to foster stronger community engagement and collaboration (e.g., event hubs, local participation platforms). Solutions for public services (waste management, safety, health) that reduce inefficiency and increase accessibility.',
-    '2. Local Economic Empowerment: Digital marketplaces for hyper-local products and services to thrive. Platforms enabling micro-enterprises to scale within urban communities and equitable sharing economies. B2B tools for urban-focused enterprises to scale their impact.',
-    '3. Urban Resource Optimization: Smart resource-sharing systems (energy, water, mobility) for urban residents. Scalable urban sustainability tools that incentivize better practices (e.g., gamified recycling apps)',
+    'Community Optimization: Tools to foster stronger community engagement and collaboration (e.g., event hubs, local participation platforms). Solutions for public services (waste management, safety, health) that reduce inefficiency and increase accessibility.',
+    'Local Economic Empowerment: Digital marketplaces for hyper-local products and services to thrive. Platforms enabling micro-enterprises to scale within urban communities and equitable sharing economies. B2B tools for urban-focused enterprises to scale their impact.',
+    'Urban Resource Optimization: Smart resource-sharing systems (energy, water, mobility) for urban residents. Scalable urban sustainability tools that incentivize better practices (e.g., gamified recycling apps)',
   ];
   const tidalFloods = [
-    '1. Prediction and Monitoring: AI-powered early warning systems for real-time tidal flood predictions. IoT-enabled flood monitoring devices for vulnerable areas. Remote sensing technologies for mapping high-risk flood zones.',
-    '2. Flood Mitigation Tools: Water diversion and storage systems for excessive tidal influxes. Smart drainage systems that adjust dynamically to tidal surges. Deployable flood barriers that can be rapidly activated during emergencies.',
-    '3. Adaptation Infrastructure: Modular and scalable seawalls or tidal barriers using advanced materials. Floating or amphibious urban infrastructure (homes, schools, roads). Nature-based solutions like smart mangrove planting or urban wetlands restoration',
+    'Prediction and Monitoring: AI-powered early warning systems for real-time tidal flood predictions. IoT-enabled flood monitoring devices for vulnerable areas. Remote sensing technologies for mapping high-risk flood zones.',
+    'Flood Mitigation Tools: Water diversion and storage systems for excessive tidal influxes. Smart drainage systems that adjust dynamically to tidal surges. Deployable flood barriers that can be rapidly activated during emergencies.',
+    'Adaptation Infrastructure: Modular and scalable seawalls or tidal barriers using advanced materials. Floating or amphibious urban infrastructure (homes, schools, roads). Nature-based solutions like smart mangrove planting or urban wetlands restoration',
   ];
 
   const gtks = [

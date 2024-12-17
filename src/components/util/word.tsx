@@ -12,16 +12,34 @@ export function WordsList({ title, points }: HTMLAttributes<HTMLDivElement> & { 
   const l = points.reduce((acc, point) => acc + point.split(' ').length, 0)
   return (
     <ol
-      className='text-lg md:text-2xl lg:text-3xl p-6 md:p-10 flex flex-wrap max-w-[90vw] shadow-lg shadow-shadow text-green-800 bg-white rounded-lg'
+      className='p-6 list-decimal md:p-10 md:pl-12 flex flex-wrap max-w-[90vw] shadow-lg shadow-shadow text-green-800 bg-white rounded-lg text-sm md:text-lg lg:text-xl'
       ref={ref}
-    ><p className="flex"><span className='italic font-light text-lg md:text-2xl mr-6 flex items-center text-lime'>FGC</span>{title}</p>
+    >
+      <p className='flex text-lg md:text-2xl lg:text-3xl '>
+        <span className='flex items-center mr-6 text-lg italic font-light md:text-2xl text-lime'>
+          FGC
+        </span>
+        {title}
+      </p>
       {points.map((words, index) => (
-        <li className="" key={words}>
-          <Words words={words} l={l} scrollYProgress={scrollYProgress} start={index !== 0 ? wordsL.slice(0, index).reduce((sum, num) => sum + num, 0) / l : 0} />
+        <li
+          className=''
+          key={words}
+        >
+          <Words
+            words={words}
+            l={l}
+            scrollYProgress={scrollYProgress}
+            start={
+              index !== 0
+                ? wordsL.slice(0, index).reduce((sum, num) => sum + num, 0) / l
+                : 0
+            }
+          />
         </li>
       ))}
     </ol>
-  )
+  );
 }
 
 export function Words({ words: paragraph, l, scrollYProgress, start: s }: { words: string, l: number, scrollYProgress: MotionValue<number>, start: number; }) {
@@ -32,7 +50,7 @@ export function Words({ words: paragraph, l, scrollYProgress, start: s }: { word
   const step = 1 / l;
   return (
     <p
-      className='md:text-lg text-sm lg:text-xl flex flex-wrap text-green-800 text-justify'
+      className='flex flex-wrap text-sm text-justify text-green-800 md:text-lg lg:text-xl'
       ref={ref}
     >
       {words.map((word, index) => {
@@ -67,7 +85,7 @@ function W({
   const step = amount / chars.length;
 
   return (
-    <span className='mr-2 md:mr-3 mt-3'>
+    <span className='mt-3 mr-2 md:mr-3'>
       {chars.map((char, index) => {
         const charStart = start + index * step;
         const charEnd = start + (index + 1) * step;
