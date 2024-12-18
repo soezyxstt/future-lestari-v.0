@@ -62,7 +62,7 @@ function SponsorCard({
           alt={name}
           width={tier === 'gold' ? 180 : 130}
           height={tier === 'gold' ? 150 : 130}
-          className='object-contain transition-transform duration-300 w-full h-full hover:scale-110'
+          className='object-contain transition-transform duration-300 w-full h-full hover:scale-105'
         />
       </div>
     </div>
@@ -88,6 +88,11 @@ function Partners() {
           <SponsorCard
             name='Pijar Foundation'
             logo='/partners/pijar.png'
+            tier='gold'
+          />
+          <SponsorCard
+            name='Future Lestari'
+            logo='/partners/lestari.png'
             tier='gold'
           />
         </div>
