@@ -5,12 +5,16 @@
   /* Fonts */
   --font-paragraph: var(--font-next-montserrat);
   --font-heading: var(--font-next-pacifico);
+  --font-pattaya: var(--font-next-pattaya);
+  --font-parisienne: var(--font-next-parisienne);
 }
 
 @theme {
   /* Fonts */
   --font-heading: var(--font-next-pacifico);
   --font-pacifico: var(--font-next-pacifico);
+  --font-pattaya: var(--font-next-pattaya);
+  --font-parisienne: var(--font-next-parisienne);
 
   /* Breakpoints */
   --breakpoint-tablet-small: 640px;
@@ -55,7 +59,7 @@
   /* Animations */
   --animate-accordion-down: accordion-down 0.25s ease-out;
   --animate-accordion-up: accordion-up 0.25s ease-out;
-  
+
   @keyframes accordion-down {
     from {
       height: 0px;
@@ -64,7 +68,7 @@
       height: var(--radix-accordion-content-height);
     }
   }
-  
+
   @keyframes accordion-up {
     from {
       height: var(--radix-accordion-content-height);
@@ -74,7 +78,6 @@
     }
   }
 }
-
 
 @layer base {
   html {

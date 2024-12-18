@@ -16,7 +16,7 @@ export const TimelineBranch = ({ children }: { children: React.ReactNode }) => {
 
   const { scrollYProgress } = useScroll({
     target: containerRef,
-    offset: ['start 50%', 'end 75%'],
+    offset: ['start 75%', 'end 75%'],
   });
 
   const heightTransform = useTransform(scrollYProgress, [0, 1], [0, height]);
@@ -29,7 +29,7 @@ export const TimelineBranch = ({ children }: { children: React.ReactNode }) => {
     >
       <div
         ref={ref}
-        className='relative max-w-7xl mx-auto pb-20 space-y-6 md:space-y-8 md:translate-x-1/2'
+        className='relative max-w-7xl mx-auto pb-20 space-y-6 md:space-y-24 md:translate-x-1/2'
       >
         <div
           style={{

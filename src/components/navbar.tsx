@@ -16,7 +16,6 @@ export default function Navbar() {
   const { scrollY } = useScroll();
   const { height } = useWindowSize();
   const [hidden, setHidden] = useState(false);
-  const [activeTab, setActiveTab] = useState<number>(0);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useMotionValueEvent(scrollY, 'change', (latest) => {
@@ -30,13 +29,15 @@ export default function Navbar() {
   const color = useTransform(scrollY, [0, height * 0.9, height], ['var(--color-lime)', 'var(--color-lime)', 'var(--color-green-700)']);
   const borderWidth = useTransform(scrollY, [0, height * 0.9, height], ['0', '0', '1px']);
   const background = useTransform(scrollY, [0, height * 0.9, height], ['#66666655', '#FFFFFF55', '#EEFFEE55']);
+  const [pos, setPos] = useState({x: 0, width: 0});
 
   const navItems = [
     'about',
-    'timeline',
+    'challenge areas',
     'benefits',
-    'judges',
+    // 'judges',
     'partners',
+    'timeline',
     'FAQ',
   ];
   const socialLinks = [
@@ -109,20 +110,23 @@ export default function Navbar() {
           id='nav-links'
         >
           <motion.div
-            className='absolute h-full w-[calc(100%/6-1.25rem)] bg-transparent rounded-lg group-hover:bg-accent-primary/10 '
+            className='absolute h-full bg-transparent rounded-lg group-hover:bg-green-500/20 '
             initial={false}
             animate={{
-              x: `calc(${activeTab * 100}% + ${activeTab * 1.5}rem)`,
+              x: pos.x,
+              width: pos.width,
             }}
             exit={{ y: -100 }}
             transition={{ type: 'spring', stiffness: 400, damping: 30 }}
           />
-          {navItems.map((item, index) => (
+          {navItems.map((item) => (
             <Link
               key={item}
-              href={`#${item.toLowerCase()}`}
-              className='relative z-10 flex justify-center w-24 py-2 font-semibold capitalize transition-colors'
-              onMouseEnter={() => setActiveTab(index)}
+              href={`#${item.replace(" ", "-").toLowerCase()}`}
+              className='relative z-10 flex justify-center min-w-24 py-2 flex-nowrap text-nowrap font-semibold capitalize transition-colors px-2'
+              onMouseEnter={(e) => {
+                setPos({ x: e.currentTarget.offsetLeft, width: e.currentTarget.offsetWidth });
+              }}
             >
               {item}
             </Link>

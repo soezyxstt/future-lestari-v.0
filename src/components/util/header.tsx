@@ -8,7 +8,7 @@ export default function Header({ children, className }: { children: React.ReactN
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6 }}
-      className={cn('text-3xl md:text-5xl font-semibold text-emerald-700', className)}
+      className={cn('text-3xl md:text-5xl font-medium text-emerald-700', className)}
     >
       {children}
     </motion.h2>

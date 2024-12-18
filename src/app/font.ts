@@ -1,4 +1,4 @@
-import {Montserrat, Pacifico} from "next/font/google";
+import {Montserrat, Pacifico, Pattaya, Parisienne} from "next/font/google";
 
 export const montserrat = Montserrat({
   subsets: ["latin"],
@@ -11,3 +11,14 @@ export const pacifico = Pacifico({
   variable: "--font-next-pacifico",
 });
 
+export const pattaya = Pattaya({
+  weight: "400",
+  subsets: ["latin"],
+  variable: "--font-next-pattaya",
+});
+
+export const parisienne = Parisienne({
+  weight: "400",
+  subsets: ["latin"],
+  variable: "--font-next-parisienne",
+});

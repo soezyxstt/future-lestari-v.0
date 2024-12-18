@@ -1,15 +1,34 @@
-import Link from "next/link";
-import { Instagram, Linkedin, Youtube } from "lucide-react";
+import Link from 'next/link';
+import { Instagram, Linkedin, Youtube } from 'lucide-react';
 import Image from 'next/image';
 
 export default function Footer() {
-  const navItems = ['about', 'timeline', 'benefits', 'judges', 'partners', 'FAQ'];
-  const socialLinks = [
-    { name: 'YouTube', href: 'https://www.youtube.com/channel/UCvKEPJS3t6Er1FsxSl7eJYA', Icon: Youtube },
-    { name: 'Instagram', href: 'https://www.instagram.com/future.lestari/', Icon: Instagram },
-    { name: 'LinkedIn', href: 'https://www.linkedin.com/company/future-lestari/?viewAsMember=true', Icon: Linkedin }
+  const navItems = [
+    'about',
+    'challenge areas',
+    'benefits',
+    // 'judges',
+    'partners',
+    'timeline',
+    'FAQ',
   ];
-
+  const socialLinks = [
+    {
+      name: 'YouTube',
+      href: 'https://www.youtube.com/channel/UCvKEPJS3t6Er1FsxSl7eJYA',
+      Icon: Youtube,
+    },
+    {
+      name: 'Instagram',
+      href: 'https://www.instagram.com/future.lestari/',
+      Icon: Instagram,
+    },
+    {
+      name: 'LinkedIn',
+      href: 'https://www.linkedin.com/company/future-lestari/?viewAsMember=true',
+      Icon: Linkedin,
+    },
+  ];
 
   return (
     <footer

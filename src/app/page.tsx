@@ -6,7 +6,7 @@ import Timeline from '@/components/timeline';
 import { useEffect } from 'react';
 import Lenis from 'lenis';
 import Benefits from '@/components/benefits';
-import Judges from '@/components/judges';
+// import Judges from '@/components/judges';
 import Partners from '@/components/partners';
 import Faqs from '@/components/faqs';
 
@@ -31,10 +31,10 @@ export default function Home() {
     <>
       <Hero />
       <About />
-      <Timeline />
       <Benefits />
-      <Judges />
+      {/* <Judges /> */}
       <Partners />
+      <Timeline />
       <Faqs />
     </>
   );

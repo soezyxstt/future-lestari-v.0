@@ -53,7 +53,7 @@ const timelineData2 = timelineData.map((item) => ({
 const Timeline = () => {
 
   return (
-    <section id='timeline' className="min-h-screen w-full overflow-hidden relative py-20  " >
+    <section id='timeline' className="min-h-screen w-full overflow-hidden bg-green-500/5 relative py-20  " >
       <div className="absolute inset-0 overflow-hidden z-0">
         <svg className="absolute top-10 left-10 text-emerald-100 w-40 h-40 opacity-50" viewBox="0 0 100 100">
           <circle cx="50" cy="50" r="40" fill="currentColor"/>

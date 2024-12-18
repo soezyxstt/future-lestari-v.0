@@ -60,11 +60,6 @@ export default function Hero() {
         <p className='text-sm md:text-base lg:text-lg text-white text-center'>
           A collaborative initiative that develops tech-driven solutions for Indonesia&apos;s most pressing sustainability and societal challenges. 
         </p>
-        <motion.div
-          initial={{ scale: 0, opacity: 0 }}
-          animate={{ scale: 1, opacity: 1, transition: { delay: 0.5 } }}
-          className='bg-lime w-full h-px rounded-full origin-center'
-        />
       </motion.div>
     </section>
   );
