@@ -1,49 +1,25 @@
-# FutureGen for Change — v0
+# FutureGen for Change | v0
 
-Early web prototype for **FutureGen for Change**, a collaborative initiative focused on technology-driven solutions for sustainability and societal challenges in Indonesia.
+Early web prototype for FutureGen for Change, an initiative focused on technology-driven sustainability and social-impact ideas in Indonesia.
 
-> This repository represents an early public iteration (`v0`) of the project and is retained as a historical design/development snapshot.
+## Features
 
-## Experience
-
-- Scroll-driven animated hero experience
-- Initiative overview and benefits sections
+- Animated hero section
+- Initiative overview
 - Partner showcase
 - Program timeline
-- FAQ section
-- Responsive landing-page layout
+- FAQ
+- Responsive layout
 
 ## Stack
 
-- Next.js
-- React + TypeScript
-- Tailwind CSS
-- Motion
-- Lenis smooth scrolling
+`Next.js` `React` `TypeScript` `Tailwind CSS` `Motion` `Lenis`
 
-## Page structure
-
-```text
-Hero
- ↓
-About
- ↓
-Benefits
- ↓
-Partners
- ↓
-Timeline
- ↓
-FAQ
-```
-
-## Local development
+## Development
 
 ```bash
 npm install
 npm run dev
 ```
 
-## Status
-
-Historical prototype / supporting portfolio project. It is not presented as one of the primary engineering showcases on my profile.
+Historical prototype kept as a development snapshot, not a primary portfolio project.
